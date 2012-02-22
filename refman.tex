@@ -11,10 +11,23 @@ Agda code is written in plain text files consisting of Unicode characters encode
 The tokens that may appear in source files are literals (\S\ref{sec:literals}), names (\S\ref{sec:names}), and keywords (\S\ref{sec:keywords}).
 
 Tokens are separated by whitespace and organised into blocks.
-For more details, see~\S\ref{sec:layout}.
+Whitespace includes comments (\S\ref{sec:comments}).
+For more details about layout, see~\S\ref{sec:layout}.
 
 Agda programs are organised into modules, with one top-level module per file.
 For more details, see~\S\ref{sec:modules}.
+\subsection{Comments}
+\label{sec:comments}
+Agda has both single-line and multi-line comments.
+
+A single-line comment is two hyphens (\texttt{--}) followed by a sequence of any characters except newline.
+The comment ends with a newline.
+
+A multi-line comment is any sequence of characters delimited by \texttt{\{-} and \texttt{-\}}.
+Multi-line comments may be nested, and must be nested properly.
+
+Comments may not appear in string literals.
+(Apparent comments in string literals are part of the string.)
 \subsection{Literals}
 \label{sec:literals}
 \paragraph{Numbers}
