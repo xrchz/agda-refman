@@ -1,14 +1,92 @@
 \documentclass{article}
+\usepackage{multicol,alltt}
+\usepackage[a4paper]{geometry}
 \begin{document}
 \title{Agda Reference Manual}
 \author{Various Authors}
 \maketitle
 \section{Lexical Matters}
 \subsection{Source Files}
-\subsection{Identifiers}
+Agda code is written in plain text files consisting of Unicode characters encoded in UTF-8.
+The tokens that may appear in source files are literals (\S\ref{sec:literals}), names (\S\ref{sec:names}), and keywords (\S\ref{sec:keywords}).
+Tokens are separated by whitespace; for more details about the meaning of whitespace see~\S\ref{sec:layout}.
+
+Agda programs are organised in modules, with one top-level module per file; see~\S\ref{sec:modules} for more details.
+\subsection{Literals}
+\label{sec:literals}
+\paragraph{Numbers}
+\paragraph{Characters}
+\paragraph{Strings}
+\subsection{Names}
+\label{sec:names}
+\paragraph{Name Parts}
+A \emph{name part} is a string of printable characters not containing any of the following characters.
+\begin{verbatim}
+@.(){};_
+\end{verbatim}
+\paragraph{(Unqualified) Names}
+A \emph{name} is is a sequence of one or more name parts separated by underscores (\texttt{\_}).
+\paragraph{Qualified Names}
+A \emph{qualified name} is a sequence of one or more unqualified names separated by dots (\texttt{.}).
+\subsection{Keywords}
+\label{sec:keywords}
+Keywords are name parts that have a special meaning and can only appear in certain contexts.
+
+The following keywords may not appear in names (though they may appear as substrings of name parts).
+\begin{multicols}{3}
+\begin{alltt}
+=
+|
+->
+:
+?
+\char92
+\(\to\)
+\(\forall\)
+\(\lambda\)
+abstract
+codata
+constructor
+data
+field
+forall
+hiding
+import
+in
+infix
+infixl
+infixr
+let
+module
+mutual
+open
+postulate
+primitive
+Prop
+private
+public
+quoteGoal
+quoteTerm
+quote
+record
+renaming
+rewrite
+Set\(n\qquad(n\simeq\mathtt{[0-9]\sp{*}})\)
+syntax
+unquote
+using
+where
+with
+\end{alltt}
+\end{multicols}
+The following keywords may appear in names.
+\begin{alltt}
+to
+\end{alltt}
 \subsection{Mixfix}
 \subsection{Fixity Declarations}
 \subsection{Layout}
+\label{sec:layout}
 \section{Type Theory}
 \section{Declarations}
 \subsection{Data}
@@ -16,6 +94,7 @@
 \subsection{Records}
 \subsection{Postulates}
 \section{Modules}
+\label{sec:modules}
 \section{Totality}
 \section{Relevance}
 \section{Practical Matters}
