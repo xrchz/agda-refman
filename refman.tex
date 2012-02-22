@@ -9,20 +9,47 @@
 \subsection{Source Files}
 Agda code is written in plain text files consisting of Unicode characters encoded in UTF-8.
 The tokens that may appear in source files are literals (\S\ref{sec:literals}), names (\S\ref{sec:names}), and keywords (\S\ref{sec:keywords}).
-Tokens are separated by whitespace; for more details about the meaning of whitespace see~\S\ref{sec:layout}.
 
-Agda programs are organised in modules, with one top-level module per file; see~\S\ref{sec:modules} for more details.
+Tokens are separated by whitespace and organised into blocks.
+For more details, see~\S\ref{sec:layout}.
+
+Agda programs are organised into modules, with one top-level module per file.
+For more details, see~\S\ref{sec:modules}.
 \subsection{Literals}
 \label{sec:literals}
 \paragraph{Numbers}
 \paragraph{Characters}
+A character literal is given by
+\begin{alltt}
+'\(c\)'
+\end{alltt}
+where $c$ is any character except backslash (\texttt{\char92}) or single-quote (\texttt{'}).
+The backslash literal is written \texttt{'\char92\char92'} and the single-quote literal \texttt{'\char92''}.
 \paragraph{Strings}
+A string literal is given by
+\begin{alltt}
+"\(s\)"
+\end{alltt}
+where $s$ is a sequence of normal or escaped characters characters.
+A normal character, in this context, is any Unicode character except backslash (\texttt{\char92}) or double-quote (\texttt{"}).
+Escaped characters and their meanings are listed below.
+
+\begin{tabular}{c|c}
+Character & Meaning\\\hline
+\texttt{\char92\char92} & backslash\\
+\texttt{\char92"} & double-quote\\
+\texttt{\char92n} & newline\\
+\texttt{\char92r} & carriage return\\
+\texttt{\char92t} & tab
+\end{tabular}
+
+(Unescaped newlines, carriage returns, and tabs may also occur in strings.)
 \subsection{Names}
 \label{sec:names}
 \paragraph{Name Parts}
 A \emph{name part} is a string of printable characters not containing any of the following characters.
 \begin{verbatim}
-@.(){};_
+_;."(){}@
 \end{verbatim}
 \paragraph{(Unqualified) Names}
 A \emph{name} is is a sequence of one or more name parts separated by underscores (\texttt{\_}).
@@ -83,12 +110,12 @@ The following keywords may appear in names.
 \begin{alltt}
 to
 \end{alltt}
-\subsection{Mixfix}
-\subsection{Fixity Declarations}
 \subsection{Layout}
 \label{sec:layout}
 \section{Type Theory}
+\subsection{Mixfix Syntax}
 \section{Declarations}
+\subsection{Fixity}
 \subsection{Data}
 \subsection{Constants}
 \subsection{Records}
